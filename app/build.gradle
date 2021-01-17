@@ -7,6 +7,15 @@ apply plugin: 'dagger.hilt.android.plugin'
 android {
     compileSdkVersion 29
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     defaultConfig {
         applicationId "com.example.imagesearch"
         minSdkVersion 26
@@ -17,6 +26,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "UNSPLASH_ACCESS_KEY", unsplash_access_key)
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
